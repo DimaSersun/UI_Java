@@ -38,6 +38,9 @@ public class TestStore extends BaseTest {
                 .enterUsername(login)
                 .enterPassword(password)
                 .clickToLogin()
-                .waitPageIsLoaded();
+                .waitPageIsLoaded()
+                .addBagToCart()
+                .navigateToCart()
+                .isBagIsPresent();
     }
 }

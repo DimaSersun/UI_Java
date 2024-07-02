@@ -19,7 +19,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUpDriver() {
-        Configuration.browser = "edge";
+        Configuration.browser = "chrome";
         Configuration.baseUrl = "https://www.saucedemo.com";
         open("/");
     }
