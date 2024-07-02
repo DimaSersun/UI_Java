@@ -1,22 +1,26 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.constants.LoginUsers;
 
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class AuthPage{
 
     private final SelenideElement usernameLocator = $(By.id("user-name"));
     private final SelenideElement passwordLocator = $(By.id("password"));
     private final SelenideElement loginLocator = $(By.id("login-button"));
+
 
     public AuthPage waitPageIsLoaded(){
         Allure.step("Wait till the page is open");
@@ -50,6 +54,32 @@ public class AuthPage{
 
         loginLocator.should(Condition.clickable, Duration.ofSeconds(2));
         loginLocator.click();
+
+        return new InventoryPage();
+    }
+
+    public InventoryPage loginAsStandardUser(){
+        Allure.step("Login as standard user");
+
+        usernameLocator
+                .should(Condition.visible)
+                .should(Condition.interactable)
+                .clear();
+
+        usernameLocator.sendKeys(LoginUsers.STANDARD_USER_LOGIN);
+
+        passwordLocator
+                .should(Condition.visible)
+                .should(Condition.interactable)
+                .clear();
+
+        passwordLocator.sendKeys(LoginUsers.MAIN_PASSWORD);
+
+        loginLocator
+                .should(Condition.appear)
+                .should(Condition.clickable)
+                .click();
+
         return new InventoryPage();
     }
 }
