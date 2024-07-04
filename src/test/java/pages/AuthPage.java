@@ -24,6 +24,7 @@ public class AuthPage{
 
     public AuthPage waitPageIsLoaded(){
         Allure.step("Wait till the page is open");
+
         usernameLocator.should(Condition.appear);
         return this;
     }

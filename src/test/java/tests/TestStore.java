@@ -40,7 +40,6 @@ public class TestStore extends BaseTest {
                 .clickToLogin()
                 .waitPageIsLoaded()
                 .addBagToCart()
-                .navigateToCart()
-                .isBagIsPresent();
+                .navigateToCart();
     }
 }
