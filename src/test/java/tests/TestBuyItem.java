@@ -47,7 +47,13 @@ public class TestBuyItem extends BaseTest {
                 .firstNameData(DataSet.get(Data.FIRST_NAME))
                 .lastNameData(DataSet.get(Data.LAST_NAME))
                 .zipCodeData(DataSet.get(Data.ZIP_CODE))
-                .clickContinue();
+                .clickContinue()
+                .checkProductNameInOverview(productName)
+                .checkProductPriceInOverview(expectedPrice)
+                .clickOnFinishButton()
+                .completePageIsLoaded()
+                .finalInfoIsVisible()
+                .clickBackHomeButton();
 
     }
 }

@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -13,16 +14,19 @@ public class InventoryPage {
     private final String itemName = "//div[text()='%s']";
 
     public InventoryPage waitPageIsLoaded() {
+        Allure.step("Wait till page is loaded");
         addToCart.should(Condition.clickable);
         return this;
     }
 
     public InventoryPage addBagToCart() {
+        Allure.step("Add to cart the prodcut");
         addToCart.click();
         return this;
     }
 
     public CartPage navigateToCart() {
+        Allure.step("Navigate to Cart");
         cartIcon.click();
         return new CartPage();
     }
