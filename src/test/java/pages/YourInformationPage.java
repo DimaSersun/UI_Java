@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import utils.managers.FakeDataGenerator;
 import utils.constants.LoginUsers;
@@ -21,6 +22,7 @@ public class YourInformationPage {
 
 
     public YourInformationPage informationPageIsLoaded(){
+        Allure.step("Wait till YourInfo page is loaded");
         yourInformationButton
                 .should(Condition.visible, Duration.ofSeconds(3));
 
@@ -28,6 +30,7 @@ public class YourInformationPage {
     }
 
     public YourInformationPage firstNameData(String firstname){
+        Allure.step("Writ the random first name");
 
         firstNameLocator.should(Condition.visible, Duration.ofSeconds(2));
         firstNameLocator.clear();
@@ -36,6 +39,7 @@ public class YourInformationPage {
     }
 
     public YourInformationPage lastNameData(String lastname){
+        Allure.step("Writ the random last name");
 
         secondNameLocator.should(Condition.visible, Duration.ofSeconds(2));
         secondNameLocator.clear();
@@ -44,6 +48,7 @@ public class YourInformationPage {
     }
 
     public YourInformationPage zipCodeData(String zipcode){
+        Allure.step("Writ the random zip code ");
 
         zipCodeLocator.should(Condition.visible, Duration.ofSeconds(2));
         zipCodeLocator.clear();
@@ -53,6 +58,7 @@ public class YourInformationPage {
     }
 
     public OverviewPage clickContinue(){
+        Allure.step("Click on continue button");
         continueButton
                 .should(Condition.visible)
                 .should(Condition.clickable)

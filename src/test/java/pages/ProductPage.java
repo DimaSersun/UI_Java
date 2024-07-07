@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 
 import java.time.Duration;
@@ -16,6 +17,7 @@ public class ProductPage {
     private final SelenideElement clickOnCart = $(By.xpath("//div[@id='shopping_cart_container']"));
 
     public ProductPage waitPageIsLoaded() {
+        Allure.step("Wait till the page is open");
         backButton
                 .should(Condition.visible, Duration.ofSeconds(3))
                 .should(Condition.clickable, Duration.ofSeconds(3));
@@ -24,6 +26,7 @@ public class ProductPage {
     }
 
     public ProductPage checkProductName(String expectedName) {
+        Allure.step("Check the product Name");
         actualProductName
                 .should(Condition.visible)
                 .should(Condition.appear)
@@ -33,6 +36,7 @@ public class ProductPage {
     }
 
     public ProductPage checkProductPrice(String expectedPrice) {
+        Allure.step("Check the product Price");
         actualProductPrice
                 .should(Condition.visible)
                 .should(Condition.appear)
@@ -42,6 +46,7 @@ public class ProductPage {
     }
 
     public ProductPage addToCart() {
+        Allure.step("Click on Add to Cart Button");
         addToCartButton
                 .should(Condition.visible)
                 .should(Condition.clickable)
@@ -50,6 +55,7 @@ public class ProductPage {
     }
 
     public CartPage clickToCart(){
+        Allure.step("Go to the Cart");
         clickOnCart
                 .should(Condition.visible)
                 .should(Condition.clickable)
